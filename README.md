@@ -1,6 +1,6 @@
 # Impact of bias nonstationarity on the performance of uni- and multivariate bias-adjusting methods
 
-Cite as 
+Cite as [![DOI](https://zenodo.org/badge/310344526.svg)](https://zenodo.org/badge/latestdoi/310344526).
 
 ## General overview
 
