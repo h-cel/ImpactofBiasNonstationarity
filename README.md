@@ -76,5 +76,3 @@ Six main (or configuration) files are included in this code:
 * Visualisation: uses the RB_O and RB_MB values calculated to make the graphs used in the article
 * BiasChangeAll: calculates the R index described in Section 2.4
 * ClimaticChanges: data exploration of climatic changes, not used in the paper
-
-Last update on 05/11/'20 by J. Van de Velde
