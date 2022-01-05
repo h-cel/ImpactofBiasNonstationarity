@@ -4,8 +4,8 @@ Cite as [![DOI](https://zenodo.org/badge/310344526.svg)](https://zenodo.org/badg
 
 ## General overview
 
-This is the code used for the calculations and evaluation in Van de Velde et al. (to be submitted). 
-In this paper, 5 bias-adjusting methods are evaluated under climate change circumstances and compared with the change in bias between calibration and validation period. These 5 methods are QDM, mQDM, MBCn, MRQNBC and dOTC.
+This is the code used for the calculations and evaluation in Van de Velde et al. (preprint available at https://hess.copernicus.org/preprints/hess-2020-639/#discussion). 
+In this paper, 6 bias-adjusting methods are evaluated under climate change circumstances and compared with the change in bias between calibration and validation period. These 6 methods are QDM, mQDM, MBCn, MRQNBC, dOTC and R2D2.
 
 Note that although this code is publicly available, the observed data used in the paper cannot be shared and has to be requested from the Royal Meteorological Institute in Uccle, Belgium.
 
@@ -73,10 +73,10 @@ Data analysis:
 
 Six main (or configuration) files are included in this code:
 * a_loadClimateData: loads the climate data
-* b_configurationBiasCorrection: launches the bias correction/bias adjustment
-* c_BCEvaluation: calculates all indices and the RB_O and RB_MB values as used in the article
+* b_configurationBiasAdjustment: launches the bias adjustment
+* c_BAEvaluation: calculates all indices and the RB_O and RB_MB values as used in the article
 * Visualisation: uses the RB_O and RB_MB values calculated to make the graphs used in the article
 * BiasChangeAll: calculates the R index described in Section 2.4
-* ClimaticChanges: makes the plot shown in Section 2.1
+* ClimaticChanges: data exploration of climatic changes, not used in the paper
 
 Last update on 05/11/'20 by J. Van de Velde
