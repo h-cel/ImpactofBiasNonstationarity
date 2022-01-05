@@ -49,27 +49,30 @@ datatype = {'E', 'T', 'P'};
 % However, a limited timeframe needs to be chosen, to be sure that the future period really is the 
 % future and the control period really represents the history.
 tControl =  [1970 1 1; 1989 12 31]; %Changed to 1970-1989/1998-2017 for the MPI-RCA dataset
-tFuture = [1998 1 1; 2017 12 31]; %Standard future period: [2071 1 1; 2100 12 31]; BC Comparison period: [1998 1 1; 2017 12 31]
+tFuture = [1970 1 1; 1989 12 31]; %Comparison calibration period
+%tFuture = [1998 1 1; 2017 12 31]; %Standard future period: [2071 1 1; 2100 12 31]; BC Comparison period: [1998 1 1; 2017 12 31]
+%tControl =  [1971 1 1; 2000 12 31]; %Control period: [1971-1-1; 2000 12 31]
+%tFuture = [2071 1 1; 2100 12 31]; %Standard future period: [2071 1 1; 2100 12 31]
 %% 3. Prepare bias Data
 % Data preparation
 
 [xho, xhs, xfs] = prepareBiasdata(ho, hs, fs, tControl, tFuture); %Truncation of the datasets to the given timeframes
-save(strcat(save_loc, 'MPI-rcp45_xfs.mat'), 'xfs');
-save(strcat(save_loc, 'MPI-rcp45_xhs.mat'), 'xhs');
-save(strcat(save_loc, 'Uccle_xho.mat') , 'xho');
-TransformToNetCDF(xho, 'E:\Users\jpvdveld\Onderzoek\Data\0_original\', 'xho');
-TransformToNetCDF(xhs, 'E:\Users\jpvdveld\Onderzoek\Data\0_original\', 'xhs');
-TransformToNetCDF(xfs, 'E:\Users\jpvdveld\Onderzoek\Data\0_original\', 'xfs');
+%save(strcat(save_loc, 'MPI-rcp45_calSim.mat'), 'xfs');
+%save(strcat(save_loc, 'MPI-rcp45_xhs.mat'), 'xhs');
+%save(strcat(save_loc, 'Uccle_xho.mat') , 'xho');
+% TransformToNetCDF(xho, 'E:\Users\jpvdveld\Onderzoek\Data\0_original\', 'xho');
+% TransformToNetCDF(xhs, 'E:\Users\jpvdveld\Onderzoek\Data\0_original\', 'xhs');
+% TransformToNetCDF(xfs, 'E:\Users\jpvdveld\Onderzoek\Data\0_original\', 'xfs');
 
 %% 4. Specify bias adjustment method
 
 % A combination of different bias correction methods can be given. This is
 % done via two Boolean vectors, in which each element represents a method
 
-occ_methods = [0 0 1 0]; %Occurrence
-int_methods = [1 0 0 0 0]; %Intensity
+occ_methods = [0 0 0 1]; %Occurrence
+int_methods = [0 0 0 0 1]; %Intensity
 
-names_occ = {'none', 'ssr', 'tdc', 'threshold'}; 
+names_occ = {'none', 'ssr', 'tda', 'threshold'}; 
 names_int = {'qdm', 'mqdm', 'mbcn', 'mrqnbc', 'dotc'};
 
 %% 5. Specify ensemble members
@@ -77,7 +80,7 @@ names_int = {'qdm', 'mqdm', 'mbcn', 'mrqnbc', 'dotc'};
 % the stochastic steps. It is used as a base repetitions number, i.e. in
 % each stochastic step n repetitions are used.
 
-n = 20; %Standard: 20
+n = 10; %Standard: 20
 
 %% 6. Start the procedure
 % Make sure the selection is set as wanted!
@@ -89,7 +92,7 @@ for i=1:length(occ_methods)
         if int_methods(j) == 1 % Checks which intensity methods are being calculated
             name_int = names_int{j};
             tic
-            BiasAdjustment(xho, xhs, xfs, datatype, name_occ , name_int, n, 'MPI-rcp45')
+            BiasAdjustment(xho, xhs, xfs, datatype, name_occ , name_int, n, 'MPI-rcp45calibration')
             toc
         end
     end
