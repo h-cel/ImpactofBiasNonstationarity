@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Van de Velde"
+  given-names: "Jorn"
+  orcid: "https://orcid.org/0000-0002-1177-4744"
+- family-names: "Demuzere"
+  given-names: "Matthias"
+  orcid: "https://orcid.org/0000-0003-3237-4077"
+- family-names: "De Baets"
+  given-names: "Bernard"
+  orcid: "https://orcid.org/0000-0002-3876-620X"
+- family-names: "Verhoest"
+  given-names: "Niko"
+  orcid: "https://orcid.org/0000-0003-4116-8881"
+title: "Impact of bias nonstationarity on the performance of uni- andmultivariate bias-adjusting methods: a case study on data from Uccle, Belgium"
+version: 1.0.0
+doi: https://doi.org/10.5194/hess-2020-639
+date-released: 2022-01-05
+url: "https://github.com/h-cel/ImpactofBiasNonstationarity"
